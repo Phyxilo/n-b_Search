@@ -16,14 +16,15 @@ vector<vector<float>> Dat2Vec(FILE *datFile);
 
 vector<Cluster> Vec2Cls (vector<vector<float>> Vec);
 vector<Cluster> PairGen(vector<Cluster> cls, vector<vector<float>> vec);
-
-vector<Cluster> clusterVecPos;
-vector<Cluster> clusterVecEn;
+vector<Cluster> RemoveDups(vector<Cluster> cls);
 
 float WeightCalc(vector<vector<float>> elm, float *midPt, vector<vector<float>> vec);
 bool Comparison (Cluster priCls, Cluster secCls);
+
 void ShowResults(vector<Cluster> cls);
 
+vector<Cluster> clusterVecPos;
+vector<Cluster> clusterVecEn;
 vector<vector<float>> posVec;
 vector<vector<float>> enVec;
 
@@ -65,15 +66,18 @@ void ClusterGen()
 
 	for (int i = 0; i < clsSize-1; i++)
 	{
-		//clusterVecPos = PairGen(clusterVecPos, posVec);
-		clusterVecEn = PairGen(clusterVecEn, enVec);
+		clusterVecPos = PairGen(clusterVecPos, posVec);
+		//clusterVecEn = PairGen(clusterVecEn, enVec);
 	}
 
-	//sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
-	sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
+	sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
+	//sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
 
-	//ShowResults(clusterVecPos);
-	ShowResults(clusterVecEn);
+	clusterVecPos = RemoveDups(clusterVecPos);
+	//clusterVecEn = RemoveDups(clusterVecEn);
+	
+	ShowResults(clusterVecPos);
+	//ShowResults(clusterVecEn);
 }
 
 vector<vector<float>> Dat2Vec(FILE *datFile)
@@ -238,17 +242,17 @@ float WeightCalc(vector<vector<float>> elm, float *midPt, vector<vector<float>> 
 		selVec.push_back(elm[i][1]);
 
 		auto it = find(fullVec.begin(), fullVec.end(), selVec);
-      if (it != fullVec.end())
-      {
-      	index = it - fullVec.begin();
+		if (it != fullVec.end())
+		{
+			index = it - fullVec.begin();
 
-      	posX = vec[index][2]; posY = vec[index][3];
-      	dist += sqrt((posX - midPt[0])*(posX - midPt[0]) + (posY - midPt[1])*(posY - midPt[1]));
+			posX = vec[index][2]; posY = vec[index][3];
+			dist += sqrt((posX - midPt[0])*(posX - midPt[0]) + (posY - midPt[1])*(posY - midPt[1]));
 
-      	weight = dist/vecSize;
+			weight = ceil (dist/vecSize * 10000000) / 10000000;
 
-      	//cout << index << endl;
-      }
+			//cout << index << endl;
+		}
 	}
 
 	return weight;
@@ -264,7 +268,7 @@ void ShowResults(vector<Cluster> cls)
 {
 	int clstCount = cls.size();
 
-	for (int x = 0; x < cls.size(); x++)
+	for (int x = 0; x < clstCount; x++)
 	{
 		cout << "\nCluster Rank: " << clstCount - x << endl;
 		cout << "Cluster Size: " << clstCount << endl;
@@ -281,4 +285,24 @@ void ShowResults(vector<Cluster> cls)
 		cout << "Weight: " << cls[x].weight << endl;
 		cout << "Middle Point: (" << cls[x].midPoint[0] << ", " << cls[x].midPoint[1] << ")" << endl;
 	}
+}
+
+
+vector<Cluster> RemoveDups(vector<Cluster> cls)
+{
+	vector<Cluster> selCls;
+
+	for (int x = 0; x < cls.size(); x++)
+	{
+		vector<float> selWeight;
+
+		for (int y = 0; y < selCls.size(); y++) { selWeight.push_back(selCls[y].weight); }
+
+		if (find(selWeight.begin(), selWeight.end(), cls[x].weight) == selWeight.end())
+		{
+			selCls.push_back(cls[x]);
+		}
+	}
+
+	return selCls;
 }
