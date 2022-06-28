@@ -1,6 +1,6 @@
 #include <iostream>
 #include "TClass.h"
-#include "ToyMC.h"
+#include "ToyMC.C"
 
 using namespace MCVar;
 
@@ -68,7 +68,7 @@ void ToyMCMain()
 	for (int i = 0; i < n; i++)
 	{
 		//cout << ToyMC (MCComb[i][0], MCComb[i][1], MCComb[i][2])[4] << endl;
-		ToyMC(MCComb[i][0], MCComb[i][1], MCComb[i][2], 4000000);
+		ToyMC(MCComb[i][0], MCComb[i][1], MCComb[i][2], 400);
 
 		binPosRatio[0][i] = binInt[1]/binInt[0];
 		binPosRatio[1][i] = binInt[2]/binInt[0];

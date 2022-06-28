@@ -6,17 +6,16 @@ void drawtext();
 Double_t customFit (Double_t *x, Double_t *par);
 float FittedM (float sqrtb, float n, float slope);
 
-/*
-float posPars [5][2] =
-{
-	{3.0, 0.8},
-	{4.0, 1.6},
-	{2.5, 0.6},
-	{3.5, 1.0},
-	{4.0, 1.4}
-};
-*/
 
+float posPars [4][2] =
+{
+	{3.0, 0.6},
+	{4.0, 1.0},
+	{3.5, 0.8},
+	{4.5, 1.4}
+};
+
+/*
 float posPars [4][2] =
 {
 	{3.0, 0.8},
@@ -24,7 +23,9 @@ float posPars [4][2] =
 	{3.5, 1.0},
 	{4.0, 1.4}
 };
+*/
 
+/*
 float enPars [5][2] =
 {
 	{2.5, 0.6},
@@ -32,6 +33,15 @@ float enPars [5][2] =
 	{3.5, 1.0},
 	{4.0, 1.2},
 	{4.5, 1.6}
+};
+*/
+
+float enPars [4][2] =
+{
+	{5.0, 1.6},
+	{4.0, 1.0},
+	{3.5, 0.8},
+	{4.5, 1.2}
 };
 
 float posBSqrt [5];
@@ -56,9 +66,9 @@ void MCFit()
 	Canvas->SetCanvasSize(192*6, 108*6);
 	Canvas->SetGrid();
 
-	TF1 *func = new TF1 ("customFit", "customFit", 2, 5, 2);
+	TF1 *func = new TF1 ("customFit", "customFit", 2, 4, 2);
 
-	TGraph *pos = new TGraph (5, posN, posBSqrt);
+	TGraph *pos = new TGraph (4, posN, posBSqrt);
 
 	pos->SetMarkerStyle(20);
 	pos->SetMarkerColor(1);
@@ -101,7 +111,7 @@ void MCFit()
 	cout << "Average: " << sum/5 << endl;
 	*/
 
-	TGraph *en = new TGraph (5, enN, enBSqrt);
+	TGraph *en = new TGraph (4, enN, enBSqrt);
 
 	en->SetMarkerStyle(20);
 	en->SetMarkerColor(1);
@@ -154,7 +164,7 @@ void MCFit()
 	combinedLeg->AddEntry(en, "Energy" , "p");
 	combinedLeg->Draw();
 
-	Canvas->Print( "Out/Fit.pdf)","pdf");
+	Canvas->Print( "5E7Fit.pdf)","pdf");
 
 	//slp = en->GetFunction("customFit")->GetParameter(1);
 	//cout << en->GetFunction("pol1")->SetParameter(0) << endl;

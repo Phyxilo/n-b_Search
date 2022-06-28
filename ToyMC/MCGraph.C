@@ -15,9 +15,11 @@ void MCGraph()
 
 	char buf[1024];
 	FILE *fPos;
-	fPos = fopen("/home/phyxilo/Out/posPythia.dat","rt");
+	//fPos = fopen("/home/phyxilo/Out/posPythia.dat","rt");
+	fPos = fopen("5E7/pos.dat","rt");
 	FILE *fEn;
-	fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
+	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
+	fEn = fopen("5E7/en.dat","rt");
 
 	TCanvas *Canvas= new TCanvas("Canvas","Graph Canvas",20,20,1920*4,1080*4);
 	Canvas->SetWindowSize(1920*4, 1080*4);
@@ -35,6 +37,8 @@ void MCGraph()
 
 	int x = 0;
 	int index = 0;
+
+	cout << "---------------------- Position ----------------------" << endl;
 
 	while (fgets(buf, 1024, fPos))
 	{
@@ -54,6 +58,8 @@ void MCGraph()
 	}
 	fclose(fPos);
 
+	cout << "---------------------- Energy ----------------------" << endl;
+
 	x = 0;
 
 	while (fgets(buf, 1024, fEn))
@@ -64,7 +70,7 @@ void MCGraph()
 		{
 			index = (int)((nPar - 2) * 2);
 
-			//cout << index << ", " << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
+			cout << index << ", " << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
 			enVec[0][x] = posX; enVec[1][x] = posY;
 
 			x++;
@@ -99,17 +105,17 @@ void MCGraph()
 	mGraph->Add(enRatio);
 	mGraph->SetTitle("Combined");
 	mGraph->Draw("AP");
-	Canvas->Print( "RatioPythia.pdf(","pdf");
+	Canvas->Print( "Ratio.pdf(","pdf");
 
 	TExec *exPos = new TExec("exPos","drawtext();");
 	posRatio->GetListOfFunctions()->Add(exPos);
 	posRatio->Draw("AP");
-	Canvas->Print( "RatioPythia.pdf","pdf");
+	Canvas->Print( "Ratio.pdf","pdf");
 
 	TExec *exEn = new TExec("exEn","drawtext();");
 	enRatio->GetListOfFunctions()->Add(exEn);
 	enRatio->Draw("AP");
-	Canvas->Print( "RatioPythia.pdf)","pdf");
+	Canvas->Print( "Ratio.pdf)","pdf");
 
 
 }
