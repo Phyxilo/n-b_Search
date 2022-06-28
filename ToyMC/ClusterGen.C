@@ -66,18 +66,18 @@ void ClusterGen()
 
 	for (int i = 0; i < clsSize-1; i++)
 	{
-		clusterVecPos = PairGen(clusterVecPos, posVec);
-		//clusterVecEn = PairGen(clusterVecEn, enVec);
+		//clusterVecPos = PairGen(clusterVecPos, posVec);
+		clusterVecEn = PairGen(clusterVecEn, enVec);
 	}
 
-	sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
-	//sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
+	//sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
+	sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
 
-	clusterVecPos = RemoveDups(clusterVecPos);
-	//clusterVecEn = RemoveDups(clusterVecEn);
+	//clusterVecPos = RemoveDups(clusterVecPos);
+	clusterVecEn = RemoveDups(clusterVecEn);
 	
-	ShowResults(clusterVecPos);
-	//ShowResults(clusterVecEn);
+	//ShowResults(clusterVecPos);
+	ShowResults(clusterVecEn);
 }
 
 vector<vector<float>> Dat2Vec(FILE *datFile)
