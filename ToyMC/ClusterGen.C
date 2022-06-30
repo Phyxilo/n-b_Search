@@ -25,8 +25,11 @@ void ShowResults(vector<Cluster> cls);
 
 vector<Cluster> clusterVecPos;
 vector<Cluster> clusterVecEn;
+vector<Cluster> clusterVecComb;
+
 vector<vector<float>> posVec;
 vector<vector<float>> enVec;
+vector<vector<float>> combVec;
 
 void ClusterGen()
 {
@@ -39,13 +42,19 @@ void ClusterGen()
 	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
 	fEn = fopen("5E7/en.dat","rt");
 
+	FILE *fComb;
+	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
+	fComb = fopen("5E7/combined.dat","rt");
+
 	Cluster clst;
 
 	posVec = Dat2Vec(fPos);
 	enVec = Dat2Vec(fEn);
+	combVec = Dat2Vec(fComb);
 
 	clusterVecPos = Vec2Cls(posVec);
 	clusterVecEn = Vec2Cls(enVec);
+	clusterVecComb = Vec2Cls(combVec);
 
 	//--------------------- Debuger ---------------------
 	/*
@@ -68,16 +77,20 @@ void ClusterGen()
 	{
 		//clusterVecPos = PairGen(clusterVecPos, posVec);
 		clusterVecEn = PairGen(clusterVecEn, enVec);
+		//clusterVecComb = PairGen(clusterVecComb, combVec);
 	}
 
 	//sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
 	sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
+	//sort(clusterVecComb.begin(), clusterVecComb.end(), Comparison);
 
 	//clusterVecPos = RemoveDups(clusterVecPos);
 	clusterVecEn = RemoveDups(clusterVecEn);
-	
+	//clusterVecComb = RemoveDups(clusterVecComb);
+
 	//ShowResults(clusterVecPos);
 	ShowResults(clusterVecEn);
+	//ShowResults(clusterVecComb);
 }
 
 vector<vector<float>> Dat2Vec(FILE *datFile)
@@ -274,10 +287,10 @@ void ShowResults(vector<Cluster> cls)
 		cout << "Cluster Size: " << clstCount << endl;
 
 		cout << "*********Cluster Elements*********" << endl;
-		cout.precision(2);
+		
 		for (int i = 0; i < cls[x].elements.size(); i++)
 		{
-			cout << i << ". (" << cls[x].elements[i][0] << ", " << cls[x].elements[i][1] << ")" << endl;
+			cout << fixed << setprecision(1) << i << ". (" << cls[x].elements[i][0] << ", " << cls[x].elements[i][1] << ")" << endl;
 		}
 		cout.precision(6);
 

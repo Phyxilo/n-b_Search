@@ -97,7 +97,7 @@ void MCFit()
 	posLeg->AddEntry((TObject*)0, posPar1Entry.c_str(), "");
 	posLeg->Draw();
 
-	Canvas->Print( "Out/Fit.pdf(","pdf");
+	Canvas->Print( "Fit.pdf(","pdf");
 
 	//float slp = pos->GetFunction("customFit")->GetParameter(1);
 	/*
@@ -140,7 +140,7 @@ void MCFit()
 	enLeg->AddEntry((TObject*)0, enPar1Entry.c_str(), "");
 	enLeg->Draw();
 
-	Canvas->Print( "Out/Fit.pdf","pdf");
+	Canvas->Print( "Fit.pdf)","pdf");
 
 
 	TMultiGraph *mGraph = new TMultiGraph ();

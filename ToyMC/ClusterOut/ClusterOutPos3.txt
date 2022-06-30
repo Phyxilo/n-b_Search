@@ -1,0 +1,242 @@
+
+Processing ClusterGen.C...
+Enter Cluster Size: 
+Cluster Rank: 24
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4.5, 0.4)
+1. (5, 0.4)
+2. (4, 0.4)
+*********Cluster Properties*********
+Weight: 0.0197386
+Middle Point: (0.756033, 0.5998)
+
+Cluster Rank: 23
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4, 0.4)
+1. (5, 0.6)
+2. (3.5, 0.4)
+*********Cluster Properties*********
+Weight: 0.015254
+Middle Point: (0.729767, 0.5604)
+
+Cluster Rank: 22
+Cluster Size: 24
+*********Cluster Elements*********
+0. (2, 1.4)
+1. (2, 1.6)
+2. (2, 1.2)
+*********Cluster Properties*********
+Weight: 0.0118261
+Middle Point: (0.468, 0.273067)
+
+Cluster Rank: 21
+Cluster Size: 24
+*********Cluster Elements*********
+0. (2, 1.2)
+1. (2.5, 1.6)
+2. (2, 1)
+*********Cluster Properties*********
+Weight: 0.0098243
+Middle Point: (0.4917, 0.294667)
+
+Cluster Rank: 20
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4.5, 0.6)
+1. (3.5, 0.4)
+2. (5, 0.8)
+*********Cluster Properties*********
+Weight: 0.0075997
+Middle Point: (0.710533, 0.5349)
+
+Cluster Rank: 19
+Cluster Size: 24
+*********Cluster Elements*********
+0. (5, 0.8)
+1. (4.5, 0.6)
+2. (3.5, 0.4)
+*********Cluster Properties*********
+Weight: 0.0075996
+Middle Point: (0.710533, 0.5349)
+
+Cluster Rank: 18
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4.5, 1.6)
+1. (4, 1.2)
+2. (3.5, 1)
+*********Cluster Properties*********
+Weight: 0.0064495
+Middle Point: (0.607867, 0.4155)
+
+Cluster Rank: 17
+Cluster Size: 24
+*********Cluster Elements*********
+0. (5, 1.6)
+1. (4.5, 1.2)
+2. (5, 1.4)
+*********Cluster Properties*********
+Weight: 0.0059135
+Middle Point: (0.639767, 0.4532)
+
+Cluster Rank: 16
+Cluster Size: 24
+*********Cluster Elements*********
+0. (2.5, 1.6)
+1. (2, 1)
+2. (2.5, 1.4)
+*********Cluster Properties*********
+Weight: 0.0058425
+Middle Point: (0.5001, 0.302667)
+
+Cluster Rank: 15
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3, 0.4)
+1. (4, 0.6)
+2. (4.5, 0.8)
+*********Cluster Properties*********
+Weight: 0.0058083
+Middle Point: (0.6847, 0.5006)
+
+Cluster Rank: 14
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3, 1.4)
+1. (2.5, 1)
+2. (3, 1.6)
+*********Cluster Properties*********
+Weight: 0.0057556
+Middle Point: (0.5316, 0.3357)
+
+Cluster Rank: 13
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3, 1.2)
+1. (3.5, 1.6)
+2. (2, 0.6)
+*********Cluster Properties*********
+Weight: 0.0054057
+Middle Point: (0.557367, 0.3576)
+
+Cluster Rank: 12
+Cluster Size: 24
+*********Cluster Elements*********
+0. (2.5, 1.2)
+1. (2, 0.8)
+2. (3, 1.6)
+*********Cluster Properties*********
+Weight: 0.005405
+Middle Point: (0.522167, 0.3251)
+
+Cluster Rank: 11
+Cluster Size: 24
+*********Cluster Elements*********
+0. (5, 1.4)
+1. (4, 0.8)
+2. (4.5, 1)
+*********Cluster Properties*********
+Weight: 0.005241
+Middle Point: (0.6513, 0.464)
+
+Cluster Rank: 10
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3, 1)
+1. (3.5, 1.4)
+2. (2.5, 0.8)
+*********Cluster Properties*********
+Weight: 0.0052372
+Middle Point: (0.568167, 0.369733)
+
+Cluster Rank: 9
+Cluster Size: 24
+*********Cluster Elements*********
+0. (2, 0.4)
+1. (4.5, 1.4)
+2. (3.5, 0.8)
+*********Cluster Properties*********
+Weight: 0.0052161
+Middle Point: (0.624667, 0.430767)
+
+Cluster Rank: 8
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3.5, 1.2)
+1. (4, 1.6)
+2. (3, 0.8)
+*********Cluster Properties*********
+Weight: 0.0050414
+Middle Point: (0.589633, 0.392933)
+
+Cluster Rank: 7
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3, 0.8)
+1. (4, 1.4)
+2. (2.5, 0.6)
+*********Cluster Properties*********
+Weight: 0.0048896
+Middle Point: (0.598667, 0.4002)
+
+Cluster Rank: 6
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3.5, 1)
+1. (2.5, 0.6)
+2. (4, 1.4)
+*********Cluster Properties*********
+Weight: 0.0048384
+Middle Point: (0.6009, 0.4037)
+
+Cluster Rank: 5
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4.5, 0.8)
+1. (5, 1)
+2. (4, 0.6)
+*********Cluster Properties*********
+Weight: 0.004445
+Middle Point: (0.6797, 0.498033)
+
+Cluster Rank: 4
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3.5, 0.6)
+1. (5, 1.2)
+2. (4.5, 1)
+*********Cluster Properties*********
+Weight: 0.004033
+Middle Point: (0.656933, 0.472433)
+
+Cluster Rank: 3
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4, 0.8)
+1. (4.5, 1)
+2. (2.5, 0.4)
+*********Cluster Properties*********
+Weight: 0.0036311
+Middle Point: (0.657133, 0.465133)
+
+Cluster Rank: 2
+Cluster Size: 24
+*********Cluster Elements*********
+0. (3.5, 1.6)
+1. (2, 0.6)
+2. (2.5, 0.8)
+*********Cluster Properties*********
+Weight: 0.0032456
+Middle Point: (0.5617, 0.3608)
+
+Cluster Rank: 1
+Cluster Size: 24
+*********Cluster Elements*********
+0. (4, 1)
+1. (3, 0.6)
+2. (3.5, 0.8)
+*********Cluster Properties*********
+Weight: 0.002039
+Middle Point: (0.6297, 0.435833)
