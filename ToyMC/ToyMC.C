@@ -249,7 +249,7 @@ void tau_neutrino_generator(double E_beam, double n_inp, double b_inp, int n_sam
 
 	char buf[1024];
 	FILE *fp;
-	fp = fopen("/home/phyxilo/root/macros/ToyMC/nu_tau_mom.100GeV_tau_decay.dat","rt");
+	fp = fopen("nu_tau_mom.100GeV_tau_decay.dat","rt");
 	std::vector<double> px_v,py_v,pz_v;
 	int sim_size;
 	int ev,n_dau;
@@ -268,7 +268,7 @@ void tau_neutrino_generator(double E_beam, double n_inp, double b_inp, int n_sam
 
 // *** K-factor sigma(tau_nu)/sigma(muon) reading ***
 
-	fp = fopen("/home/phyxilo/root/macros/ToyMC/Kfactor.dat","rt");
+	fp = fopen("Kfactor.dat","rt");
 	int it=0;
 	double Ke[2500],Ktau[2500], Kant[2500];		// 0 to 249.9 GeV for iterator 0 to 2499
 	while (fgets(buf, 1024, fp)) {

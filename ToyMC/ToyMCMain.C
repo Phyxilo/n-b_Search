@@ -1,86 +1,53 @@
 #include <iostream>
+#include <vector>
 #include "TClass.h"
 #include "ToyMC.C"
+#include "LUTable.h"
 
 using namespace MCVar;
 
-double binPosRatio[2][49];
-double binEnRatio[2][49];
+vector<vector<double>> binPosRatio, binEnRatio;
 
-double MCComb[49][3] =
-{
-	{400,2.0,0.4},
-	{400,2.0,0.6},
-	{400,2.0,0.8},
-	{400,2.0,1.0},
-	{400,2.0,1.2},
-	{400,2.0,1.4},
-	{400,2.0,1.6},
-	{400,2.5,0.4},
-	{400,2.5,0.6},
-	{400,2.5,0.8},
-	{400,2.5,1.0},
-	{400,2.5,1.2},
-	{400,2.5,1.4},
-	{400,2.5,1.6},
-	{400,3.0,0.4},
-	{400,3.0,0.6},
-	{400,3.0,0.8},
-	{400,3.0,1.0},
-	{400,3.0,1.2},
-	{400,3.0,1.4},
-	{400,3.0,1.6},
-	{400,3.5,0.4},
-	{400,3.5,0.6},
-	{400,3.5,0.8},
-	{400,3.5,1.0},
-	{400,3.5,1.2},
-	{400,3.5,1.4},
-	{400,3.5,1.6},
-	{400,4.0,0.4},
-	{400,4.0,0.6},
-	{400,4.0,0.8},
-	{400,4.0,1.0},
-	{400,4.0,1.2},
-	{400,4.0,1.4},
-	{400,4.0,1.6},
-	{400,4.5,0.4},
-	{400,4.5,0.6},
-	{400,4.5,0.8},
-	{400,4.5,1.0},
-	{400,4.5,1.2},
-	{400,4.5,1.4},
-	{400,4.5,1.6},
-	{400,5.0,0.4},
-	{400,5.0,0.6},
-	{400,5.0,0.8},
-	{400,5.0,1.0},
-	{400,5.0,1.2},
-	{400,5.0,1.4},
-	{400,5.0,1.6},
-};
 void drawtext();
 void dataOut(int n);
 
-int n = 49;
+vector<vector<float>> luTable = Table2;
+
 void ToyMCMain()
 {
+	int n = luTable.size();
+
 	for (int i = 0; i < n; i++)
 	{
-		//cout << ToyMC (MCComb[i][0], MCComb[i][1], MCComb[i][2])[4] << endl;
-		ToyMC(MCComb[i][0], MCComb[i][1], MCComb[i][2], 400);
+		ToyMC(luTable[i][0], luTable[i][1], luTable[i][2], 10000);
 
-		binPosRatio[0][i] = binInt[1]/binInt[0];
-		binPosRatio[1][i] = binInt[2]/binInt[0];
+		vector<double> posVec;
+		posVec.push_back(binInt[1]/binInt[0]); posVec.push_back(binInt[2]/binInt[0]);
+		binPosRatio.push_back(posVec);
+		posVec.clear();
+		
 		cout << "Pos -> Middle/Center: " << binInt[1]/binInt[0] << ", Pos -> Edge/Center: " << binInt[2]/binInt[0] << endl;
 
-		binEnRatio[0][i] = binEn[1]/binEn[0];
-		binEnRatio[1][i] = binEn[2]/binEn[0];
+		vector<double> enVec;
+		enVec.push_back(binEn[1]/binEn[0]); enVec.push_back(binEn[2]/binEn[0]);
+		binEnRatio.push_back(enVec);
+		enVec.clear();
+
 		cout << "En -> Middle/Center: " << binInt[1]/binInt[0] << ", En -> Edge/Center: " << binInt[2]/binInt[0] << endl;
+		
 	}
 	TCanvas *Canvas= new TCanvas("Canvas","Graph Canvas",20,20,1920,1080);
+	
+	double posRatioArr[2][luTable.size()];
+	double enRatioArr[2][luTable.size()];
 
-	TGraph *posRatio = new TGraph (n, binPosRatio[1], binPosRatio[0]);
+	for (int i = 0; i < luTable.size(); i++)
+	{
+		posRatioArr[0][i] = binPosRatio[i][0]; posRatioArr[1][i] = binPosRatio[i][1];
+		enRatioArr[0][i] = binEnRatio[i][0]; enRatioArr[1][i] = binEnRatio[i][1];
+	}
+	
+	TGraph *posRatio = new TGraph (n, posRatioArr[1], posRatioArr[0]);
 	posRatio->SetMarkerStyle(21);
 	posRatio->SetMarkerColor(4);
 	posRatio->SetTitle("Position");
@@ -91,7 +58,7 @@ void ToyMCMain()
 
 	Canvas->Print( "Out/MCRatio.pdf(","pdf");
 
-	TGraph *enRatio = new TGraph (n, binEnRatio[1], binEnRatio[0]);
+	TGraph *enRatio = new TGraph (n, enRatioArr[1], enRatioArr[0]);
 	enRatio->SetMarkerStyle(20);
 	enRatio->SetMarkerColor(2);
 	enRatio->SetTitle("Energy");
@@ -116,7 +83,7 @@ void drawtext()
    for (i=1; i<n; i++)
 	 {
       g->GetPoint(i,x,y);
-      l = new TLatex(x,y+0.01,Form("{%1.1f, %1.1f}",MCComb[i][1], MCComb[i][2]));
+      l = new TLatex(x,y+0.01,Form("{%1.1f, %1.1f}",luTable[i][1], luTable[i][2]));
       l->SetTextSize(0.025);
       l->SetTextFont(42);
       l->SetTextAlign(21);
@@ -133,8 +100,8 @@ void dataOut(int n)
 
 	for (int j = 0; j < n; j++)
 	{
-		fprintf(fpo,"%1.1f %1.1f %4.4f %4.4f\n",MCComb[j][1], MCComb[j][2], binPosRatio[0][j], binPosRatio[1][j]);
-		fprintf(fen,"%1.1f %1.1f %4.4f %4.4f\n",MCComb[j][1], MCComb[j][2], binEnRatio[0][j], binEnRatio[1][j]);
+		fprintf(fpo,"%1.1f %1.1f %4.4f %4.4f\n",luTable[j][1], luTable[j][2], binPosRatio[j][0], binPosRatio[j][1]);
+		fprintf(fen,"%1.1f %1.1f %4.4f %4.4f\n",luTable[j][1], luTable[j][2], binEnRatio[j][0], binEnRatio[j][1]);
 	}
 	fclose(fpo);
 	fclose(fen);

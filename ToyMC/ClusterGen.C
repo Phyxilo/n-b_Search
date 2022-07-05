@@ -36,25 +36,25 @@ void ClusterGen()
 	char buf[1024];
 	FILE *fPos;
 	//fPos = fopen("/home/phyxilo/Out/posPythia.dat","rt");
-	fPos = fopen("5E7/pos.dat","rt");
+	fPos = fopen("5E7/2/pos.dat","rt");
 
 	FILE *fEn;
 	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
-	fEn = fopen("5E7/en.dat","rt");
+	fEn = fopen("5E7/2/en.dat","rt");
 
 	FILE *fComb;
 	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
-	fComb = fopen("5E7/combined.dat","rt");
+	//fComb = fopen("5E7/1/combined.dat","rt");
 
 	Cluster clst;
 
 	posVec = Dat2Vec(fPos);
 	enVec = Dat2Vec(fEn);
-	combVec = Dat2Vec(fComb);
+	//combVec = Dat2Vec(fComb);
 
 	clusterVecPos = Vec2Cls(posVec);
 	clusterVecEn = Vec2Cls(enVec);
-	clusterVecComb = Vec2Cls(combVec);
+	//clusterVecComb = Vec2Cls(combVec);
 
 	//--------------------- Debuger ---------------------
 	/*
@@ -75,21 +75,21 @@ void ClusterGen()
 
 	for (int i = 0; i < clsSize-1; i++)
 	{
-		//clusterVecPos = PairGen(clusterVecPos, posVec);
-		clusterVecEn = PairGen(clusterVecEn, enVec);
+		clusterVecPos = PairGen(clusterVecPos, posVec);
+		//clusterVecEn = PairGen(clusterVecEn, enVec);
 		//clusterVecComb = PairGen(clusterVecComb, combVec);
 	}
 
-	//sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
-	sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
+	sort(clusterVecPos.begin(), clusterVecPos.end(), Comparison);
+	//sort(clusterVecEn.begin(), clusterVecEn.end(), Comparison);
 	//sort(clusterVecComb.begin(), clusterVecComb.end(), Comparison);
 
-	//clusterVecPos = RemoveDups(clusterVecPos);
-	clusterVecEn = RemoveDups(clusterVecEn);
+	clusterVecPos = RemoveDups(clusterVecPos);
+	//clusterVecEn = RemoveDups(clusterVecEn);
 	//clusterVecComb = RemoveDups(clusterVecComb);
 
-	//ShowResults(clusterVecPos);
-	ShowResults(clusterVecEn);
+	ShowResults(clusterVecPos);
+	//ShowResults(clusterVecEn);
 	//ShowResults(clusterVecComb);
 }
 
