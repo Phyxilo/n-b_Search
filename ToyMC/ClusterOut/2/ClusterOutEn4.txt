@@ -1,208 +1,360 @@
-Cluster Rank: 19
-Cluster Size: 19
+Cluster Rank: 19/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.8, 0.8)
 1. (5.0, 0.8)
 2. (4.6, 0.8)
 3. (5.0, 1.0)
 *********Cluster Properties*********
-Weight: 0.015899
+Dispersion: 0.015899
 Middle Point: (0.595250, 0.391325)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.007850, 0.008775)
+1. (0.014150, 0.014175)
+2. (-0.006450, -0.006625)
+3. (-0.015550, -0.016325)
+----------------------------------
+Average: (0.011000, 0.011475)
 
-Cluster Rank: 18
-Cluster Size: 19
+Cluster Rank: 18/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.4, 1.6)
 1. (3.6, 1.6)
 2. (3.4, 1.4)
 3. (3.8, 1.6)
 *********Cluster Properties*********
-Weight: 0.008780
+Dispersion: 0.008780
 Middle Point: (0.449875, 0.251350)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.013175, -0.011350)
+1. (0.000425, 0.001050)
+2. (0.002225, 0.000650)
+3. (0.010525, 0.009650)
+----------------------------------
+Average: (0.006588, 0.005675)
 
-Cluster Rank: 17
-Cluster Size: 19
+Cluster Rank: 17/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.4, 1.4)
 1. (3.6, 1.6)
 2. (3.8, 1.6)
 3. (3.6, 1.4)
 *********Cluster Properties*********
-Weight: 0.006859
+Dispersion: 0.006859
 Middle Point: (0.456275, 0.256775)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.004175, -0.004775)
+1. (-0.005975, -0.004375)
+2. (0.004125, 0.004225)
+3. (0.006025, 0.004925)
+----------------------------------
+Average: (0.005075, 0.004575)
 
-Cluster Rank: 16
-Cluster Size: 19
+Cluster Rank: 16/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.6, 0.8)
 1. (5.0, 1.0)
 2. (4.4, 0.8)
 3. (4.2, 0.8)
 *********Cluster Properties*********
-Weight: 0.006738
+Dispersion: 0.006738
 Middle Point: (0.579725, 0.374875)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.009075, 0.009825)
+1. (-0.000025, 0.000125)
+2. (-0.001325, -0.001375)
+3. (-0.007725, -0.008575)
+----------------------------------
+Average: (0.004538, 0.004975)
 
-Cluster Rank: 15
-Cluster Size: 19
+Cluster Rank: 15/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.4, 1.2)
 1. (3.6, 1.4)
 2. (3.8, 1.6)
 3. (4.0, 1.6)
 *********Cluster Properties*********
-Weight: 0.006637
+Dispersion: 0.006637
 Middle Point: (0.465650, 0.266375)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.001050, 0.001925)
+1. (-0.003350, -0.004675)
+2. (-0.005250, -0.005375)
+3. (0.007550, 0.008125)
+----------------------------------
+Average: (0.004300, 0.005025)
 
-Cluster Rank: 14
-Cluster Size: 19
+Cluster Rank: 14/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.8, 1.0)
 1. (4.2, 0.8)
 2. (4.4, 0.8)
 3. (5.0, 1.0)
 *********Cluster Properties*********
-Weight: 0.006414
+Dispersion: 0.006414
 Middle Point: (0.574450, 0.369825)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.006750, -0.005325)
+1. (-0.002450, -0.003525)
+2. (0.003950, 0.003675)
+3. (0.005250, 0.005175)
+----------------------------------
+Average: (0.004600, 0.004425)
 
-Cluster Rank: 13
-Cluster Size: 19
+Cluster Rank: 13/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.8, 1.4)
 1. (4.0, 1.6)
 2. (3.6, 1.2)
 3. (4.2, 1.6)
 *********Cluster Properties*********
-Weight: 0.005437
+Dispersion: 0.005437
 Middle Point: (0.479700, 0.277725)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.002000, -0.003225)
+1. (-0.006500, -0.003225)
+2. (0.001700, 0.001675)
+3. (0.006800, 0.004775)
+----------------------------------
+Average: (0.004250, 0.003225)
 
-Cluster Rank: 12
-Cluster Size: 19
+Cluster Rank: 12/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.8, 0.8)
 1. (4.4, 1.0)
 2. (4.8, 1.2)
 3. (5.0, 1.4)
 *********Cluster Properties*********
-Weight: 0.004901
+Dispersion: 0.004901
 Middle Point: (0.545300, 0.340750)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.000400, -0.001750)
+1. (0.001000, 0.002450)
+2. (0.005800, 0.003550)
+3. (-0.007200, -0.004250)
+----------------------------------
+Average: (0.003600, 0.003000)
 
-Cluster Rank: 11
-Cluster Size: 19
+Cluster Rank: 11/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.6, 1.0)
 1. (5.0, 1.2)
 2. (4.0, 0.8)
 3. (4.8, 1.0)
 *********Cluster Properties*********
-Weight: 0.004748
+Dispersion: 0.004748
 Middle Point: (0.561875, 0.358200)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.001775, 0.000300)
+1. (-0.002375, -0.000700)
+2. (-0.001675, -0.005900)
+3. (0.005825, 0.006300)
+----------------------------------
+Average: (0.002913, 0.003300)
 
-Cluster Rank: 10
-Cluster Size: 19
+Cluster Rank: 10/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.0, 0.8)
 1. (5.0, 1.2)
 2. (4.6, 1.0)
 3. (4.8, 1.0)
 *********Cluster Properties*********
-Weight: 0.004747
+Dispersion: 0.004747
 Middle Point: (0.561875, 0.358200)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.001675, -0.005900)
+1. (-0.002375, -0.000700)
+2. (-0.001775, 0.000300)
+3. (0.005825, 0.006300)
+----------------------------------
+Average: (0.002913, 0.003300)
 
-Cluster Rank: 9
-Cluster Size: 19
+Cluster Rank: 9/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.4, 1.4)
 1. (3.8, 1.0)
 2. (4.2, 1.2)
 3. (4.8, 1.6)
 *********Cluster Properties*********
-Weight: 0.004428
+Dispersion: 0.004428
 Middle Point: (0.514350, 0.310275)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.003650, -0.005875)
+1. (0.001650, -0.001575)
+2. (-0.000950, 0.003225)
+3. (0.002950, 0.004225)
+----------------------------------
+Average: (0.002300, 0.003725)
 
-Cluster Rank: 8
-Cluster Size: 19
+Cluster Rank: 8/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.6, 1.2)
 1. (4.2, 1.6)
 2. (4.0, 1.4)
 3. (3.4, 1.0)
 *********Cluster Properties*********
-Weight: 0.004217
+Dispersion: 0.004217
 Middle Point: (0.486475, 0.283550)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.005075, -0.004150)
+1. (0.000025, -0.001050)
+2. (-0.001275, 0.001350)
+3. (0.006325, 0.003850)
+----------------------------------
+Average: (0.003175, 0.002600)
 
-Cluster Rank: 7
-Cluster Size: 19
+Cluster Rank: 7/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.0, 1.4)
 1. (4.2, 1.6)
 2. (3.6, 1.2)
 3. (3.4, 1.0)
 *********Cluster Properties*********
-Weight: 0.004217
+Dispersion: 0.004217
 Middle Point: (0.486475, 0.283550)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.001275, 0.001350)
+1. (0.000025, -0.001050)
+2. (-0.005075, -0.004150)
+3. (0.006325, 0.003850)
+----------------------------------
+Average: (0.003175, 0.002600)
 
-Cluster Rank: 6
-Cluster Size: 19
+Cluster Rank: 6/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.0, 1.2)
 1. (3.6, 1.0)
 2. (4.6, 1.6)
 3. (4.4, 1.4)
 *********Cluster Properties*********
-Weight: 0.003946
+Dispersion: 0.003946
 Middle Point: (0.504800, 0.302175)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.003800, -0.001275)
+1. (-0.000400, -0.002875)
+2. (-0.001700, 0.001925)
+3. (0.005900, 0.002225)
+----------------------------------
+Average: (0.002950, 0.002075)
 
-Cluster Rank: 5
-Cluster Size: 19
+Cluster Rank: 5/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.6, 1.4)
 1. (3.4, 0.8)
 2. (4.8, 1.6)
 3. (4.2, 1.2)
 *********Cluster Properties*********
-Weight: 0.003808
+Dispersion: 0.003808
 Middle Point: (0.518800, 0.314875)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.002200, 0.002525)
+1. (0.004700, -0.000775)
+2. (-0.001500, -0.000375)
+3. (-0.005400, -0.001375)
+----------------------------------
+Average: (0.003450, 0.001263)
 
-Cluster Rank: 4
-Cluster Size: 19
+Cluster Rank: 4/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.2, 1.2)
 1. (4.8, 1.6)
 2. (3.8, 1.0)
 3. (4.6, 1.4)
 *********Cluster Properties*********
-Weight: 0.003777
+Dispersion: 0.003777
 Middle Point: (0.516925, 0.313525)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.003525, -0.000025)
+1. (0.000375, 0.000975)
+2. (-0.000925, -0.004825)
+3. (0.004075, 0.003875)
+----------------------------------
+Average: (0.002225, 0.002425)
 
-Cluster Rank: 3
-Cluster Size: 19
+Cluster Rank: 3/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (3.4, 1.0)
 1. (3.8, 1.2)
 2. (4.4, 1.6)
 3. (4.2, 1.4)
 *********Cluster Properties*********
-Weight: 0.003771
+Dispersion: 0.003771
 Middle Point: (0.494000, 0.292075)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.001200, -0.004675)
+1. (0.000200, -0.002375)
+2. (0.002000, 0.002425)
+3. (-0.001000, 0.004625)
+----------------------------------
+Average: (0.001100, 0.003525)
 
-Cluster Rank: 2
-Cluster Size: 19
+Cluster Rank: 2/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.6, 1.2)
 1. (4.2, 1.0)
 2. (3.6, 0.8)
 3. (5.0, 1.4)
 *********Cluster Properties*********
-Weight: 0.002927
+Dispersion: 0.002927
 Middle Point: (0.537625, 0.331625)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (0.001175, -0.000225)
+1. (-0.001225, -0.000325)
+2. (-0.000425, -0.004325)
+3. (0.000475, 0.004875)
+----------------------------------
+Average: (0.000825, 0.002438)
 
-Cluster Rank: 1
-Cluster Size: 19
+Cluster Rank: 1/19
+Cluster Size: 4
 *********Cluster Elements*********
 0. (4.4, 1.2)
 1. (4.0, 1.0)
 2. (5.0, 1.6)
 3. (4.8, 1.4)
 *********Cluster Properties*********
-Weight: 0.001614
+Dispersion: 0.001614
 Middle Point: (0.526300, 0.323775)
+*********(Mid Point - Element) Distance*********
+----------Distance Values----------
+0. (-0.000500, -0.001675)
+1. (0.001100, -0.001275)
+2. (-0.000300, 0.000825)
+3. (-0.000300, 0.002125)
+----------------------------------
+Average: (0.000550, 0.001475)
