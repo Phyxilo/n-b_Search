@@ -97,14 +97,6 @@ void MCFit(string posDat, string enDat, int Rank)
 
 	int posIn = Rank, enIn = Rank, posRank, enRank;
 
-	/*
-	cout << "Position Rank: ";
-	cin << posIn;
-
-	cout << "/nEnergy Rank: ";
-	cin << enIn;
-	*/
-
 	posRank = posCluster.elements.size()-(posIn);
 	enRank = enCluster.elements.size()-(enIn);
 

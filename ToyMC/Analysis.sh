@@ -1,13 +1,14 @@
 #!/bin/bash
 
-clsSize=4
-rank=1
-outFolder="ClusterSet1"
-Dirs=("5E7/1/pos.dat" "5E7/1/en.dat")
+clsSize=(3 4 5)								#Cluster size
+rank=(1 2 3 4)								#Cluster rank
+outFolder="ClusterSet2"						#Output folder name
+Dirs=("5E7/2/pos.dat" "5E7/2/en.dat")		#Data input directories
+doClsGen=1									#Boolean for ClusterGen.C macro
+doFit=1										#Boolean for MCFit.C macro
 
-OutDatName=("ClusterOutPos_"$clsSize".txt" "ClusterOutEn_"$clsSize".txt")
-OutPDFName=ClusterFit
-DatOuts=()
+OutDatName=ClusterOut						#Data output file name
+OutPDFName=ClusterFit						#Fit PDF output file name
 
 if [ ! -d $outFolder ]
 then
@@ -16,19 +17,40 @@ else
 	echo Out folder exists
 fi
 
-for dir in ${!Dirs[@]}; 
+for size in ${clsSize[@]};
 do
-	inDir=${Dirs[$dir]}
-	outFile=$outFolder"/"${OutDatName[$dir]}
+	DatOuts=()
 
-	echo "Input File: "$inDir
+	OutNames=($OutDatName"Pos_"$size".txt" $OutDatName"En_"$size".txt")
+	
+	echo "-------------------Cluster Size: "$size"-------------------"
 
-	root -l -b -q 'ClusterGen.C('\"$inDir\"','$clsSize')'
-	mv ClusterOut.txt $outFile
+	for dir in ${!Dirs[@]}; 
+	do
+		inDir=${Dirs[$dir]}
+		outFile=$outFolder"/"${OutNames[$dir]}
 
-	echo "Out file: "$outFile
-	DatOuts+=($outFile)
+		echo "Input File: "$inDir
+
+		if [ $doClsGen -eq 1 ]
+		then
+			root -l -b -q 'ClusterGen.C('\"$inDir\"','$size')'
+			mv ClusterOut.txt $outFile
+			echo ""
+		fi
+
+		echo "Out file: "$outFile
+		echo "--------------------------------------"
+		DatOuts+=($outFile)
+	done
+
+	if [ $doFit -eq 1 ]
+	then
+		for rnk in ${rank[@]};
+		do
+			echo "*****************Rank: " $rnk "*****************"
+			root -l -b -q 'MCFit.C('\"${DatOuts[0]}\"', '\"${DatOuts[1]}\"', '$rnk')'
+			mv ClusterFit.pdf $outFolder"/"$OutPDFName"_CS"$size":R"$rnk".pdf"
+		done
+	fi
 done
-
-root -l -b -q 'MCFit.C('\"${DatOuts[0]}\"', '\"${DatOuts[1]}\"', '$rank')'
-mv ClusterFit.pdf $outFolder"/"$OutPDFName"_R"$rank".pdf"
