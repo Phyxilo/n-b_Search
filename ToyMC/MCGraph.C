@@ -1,25 +1,32 @@
 #include <iostream>
+#include <vector>
 #include "TCanvas.h"
+
+int num = 0;
+int numSec = 0;
 
 float nPar,bPar,posX,posY;
 
-float posVec [2][49];
-float enVec [2][49];
-float depPar [2][49];
+vector<vector<float>> posVec, enVec, depPar;
 
 void drawtext();
 
-void MCGraph()
+void MCGraph(string posDat, string enDat)
 {
-	int num = sizeof(posVec[0])/sizeof(posVec[0][0]);
+	char posDatArr[1024], enDatArr[1024], buf[1024];
 
-	char buf[1024];
+	strcpy(posDatArr, posDat.c_str());
+	strcpy(enDatArr, enDat.c_str());
+
 	FILE *fPos;
 	//fPos = fopen("/home/phyxilo/Out/posPythia.dat","rt");
-	fPos = fopen("5E7/pos.dat","rt");
+	//fPos = fopen("5E7/pos.dat","rt");
+	fPos = fopen(posDatArr, "rt");
+
 	FILE *fEn;
 	//fEn = fopen("/home/phyxilo/Out/enPythia.dat","rt");
-	fEn = fopen("5E7/en.dat","rt");
+	//fEn = fopen("5E7/en.dat","rt");
+	fEn = fopen(enDatArr, "rt");
 
 	TCanvas *Canvas= new TCanvas("Canvas","Graph Canvas",20,20,1920*4,1080*4);
 	Canvas->SetWindowSize(1920*4, 1080*4);
@@ -29,16 +36,16 @@ void MCGraph()
 	TMultiGraph *mGraph = new TMultiGraph ();
 	//TExec *exPos = new TExec("exPos","drawtext();");
 
-	TFile f ("RatioPythia.root", "recreate");
 	TTree *posOut = new TTree ("pOut", "Position Ratio");
 	TTree *enOut = new TTree ("eOut", "Energy Ratio");
 
-	TH2F *PosH2D = new TH2F("h_th_eex","#theta .vs. E_ex of Ds",50,0,1,50,0,1);
+	//TH2F *PosH2D = new TH2F("h_th_eex","#theta .vs. E_ex of Ds",50,0,1,50,0,1);
 
 	int x = 0;
-	int index = 0;
 
-	cout << "---------------------- Position ----------------------" << endl;
+	vector<float> subVec;
+
+	//cout << "---------------------- Position ----------------------" << endl;
 
 	while (fgets(buf, 1024, fPos))
 	{
@@ -46,19 +53,29 @@ void MCGraph()
 
 		if(posX != 0 || posY != 0)
 		{
-			index = (int)((nPar - 2) * 2);
-
-			cout << index << ", " << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
+			//cout << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
 			//PosH2D->Fill(posX, posY);
-			posVec[0][x] = posX; posVec[1][x] = posY;
-			depPar[0][x] = nPar; depPar[1][x] = bPar;
+
+			subVec.push_back(posX); subVec.push_back(posY);
+			posVec.push_back(subVec);
+			subVec.clear();
+
+			subVec.push_back(nPar); subVec.push_back(bPar);
+			depPar.push_back(subVec);
+			subVec.clear();
+			
+			//posVec[0][x] = posX; posVec[1][x] = posY;
+			//depPar[0][x] = nPar; depPar[1][x] = bPar;
 
 			x++;
 		}
 	}
 	fclose(fPos);
 
-	cout << "---------------------- Energy ----------------------" << endl;
+	num = posVec.size();
+	numSec = posVec[0].size();
+
+	//cout << "---------------------- Energy ----------------------" << endl;
 
 	x = 0;
 
@@ -68,35 +85,38 @@ void MCGraph()
 
 		if(posX != 0 || posY != 0)
 		{
-			index = (int)((nPar - 2) * 2);
+			//cout << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
+			//enVec[0][x] = posX; enVec[1][x] = posY;
 
-			cout << index << ", " << nPar << ", " << bPar << ", " << posX << ", " << posY << endl;
-			enVec[0][x] = posX; enVec[1][x] = posY;
+			subVec.push_back(posX); subVec.push_back(posY);
+			enVec.push_back(subVec);
+			subVec.clear();
 
 			x++;
 		}
 	}
 	fclose(fEn);
-	//f.cd();
-	//mGraph->Write("PosGraph");
-	PosH2D->Write("H2D");
-	/*
-	TGraph *posRatio = new TGraph (num, posVec[1], posVec[0]);
-	posRatio->SetMarkerStyle(21);
-	posRatio->SetMarkerColor(4);
-	posRatio->SetTitle("Position");
-	*/
 
-	//posRatio->GetListOfFunctions()->Add(exPos);
-	//mGraph->Draw("AP");
+	float posArr[numSec][num];
+	float enArr[numSec][num];
 
-	//Canvas->Print( "Out/Test.pdf(","pdf");
-	TGraph *posRatio = new TGraph (num, posVec[1], posVec[0]);
+	for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < numSec; j++)
+		{
+			posArr[j][i] = posVec[i][j];
+			enArr[j][i] = enVec[i][j];
+		}
+	}
+
+	//PosH2D->Write("H2D");
+
+	TGraph *posRatio = new TGraph (num, posArr[1], posArr[0]);
 	posRatio->SetMarkerStyle(20);
 	posRatio->SetMarkerColor(2);
 	posRatio->SetTitle("Position");
 
-	TGraph *enRatio = new TGraph (num, enVec[1], enVec[0]);
+	TGraph *enRatio = new TGraph (num, enArr[1], enArr[0]);
 	enRatio->SetMarkerStyle(20);
 	enRatio->SetMarkerColor(4);
 	enRatio->SetTitle("Energy");
@@ -126,12 +146,22 @@ void drawtext()
    Double_t x,y;
    TLatex *l;
 
+   float depParArr[numSec][num];
+
+   for (int i = 0; i < num; i++)
+	{
+		for (int j = 0; j < numSec; j++)
+		{
+			depParArr[j][i] = depPar[i][j];
+		}
+	}
+
    TGraph *g = (TGraph*)gPad->GetListOfPrimitives()->FindObject("Graph");
    n = g->GetN();
    for (i=1; i<n; i++)
 	 {
       g->GetPoint(i,x,y);
-      l = new TLatex(x,y,Form("{%1.1f, %1.1f}",depPar[0][i], depPar[1][i]));
+      l = new TLatex(x,y,Form("{%1.1f, %1.1f}", depParArr[0][i], depParArr[1][i]));
       l->SetTextSize(0.007);
       l->SetTextFont(42);
       l->SetTextAlign(21);
