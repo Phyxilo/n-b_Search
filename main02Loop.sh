@@ -2,7 +2,7 @@
 
 make main02
 
-for i in {0..48}
+for i in {0..7}
 
 do	
 	echo "Event: $i"

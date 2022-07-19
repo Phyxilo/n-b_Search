@@ -7,7 +7,7 @@ rank=(1 2 3 4)								#Cluster rank
 outFolder="ClusterSetPythia"
 subFolders=("Cluster" "Fit")				#Sub output folder names
 #Dirs=("5E7/2/pos.dat" "5E7/2/en.dat")		#Data input directories
-Dirs=("Pythia/1E7/posPythia.dat" "Pythia/1E7/enPythia.dat")
+Dirs=("Pythia/1E7/Rest/Set2/posPythia.dat" "Pythia/1E7/Rest/Set2/enPythia.dat")
 
 doClsGen=1									#Boolean for ClusterGen.C macro
 doFit=1										#Boolean for MCFit.C macro
